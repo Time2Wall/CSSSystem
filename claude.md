@@ -291,32 +291,32 @@ Track progress by checking off completed items. **All tests must pass before che
 ### 9.1 Foundation
 - [x] Project structure created
 - [x] Dependencies installed (`requirements.txt`)
-- [ ] Ollama models pulled and working
+- [x] Ollama models pulled and working
 - [x] Configuration module (`config.py`)
 
 ### 9.2 Knowledge Base
 - [x] Banking documents created (5-10 markdown files)
 - [x] RAG Indexer implemented
 - [x] RAG Retriever implemented
-- [ ] Unit tests passing: `pytest tests/test_indexer.py tests/test_retriever.py`
+- [x] Unit tests passing: `pytest tests/test_indexer.py tests/test_retriever.py`
 
 ### 9.3 Agents
 - [x] Reformulation Agent implemented
-- [ ] Unit tests passing: `pytest tests/test_reformulation.py`
+- [x] Unit tests passing: `pytest tests/test_reformulation.py`
 - [x] Search Agent implemented
-- [ ] Unit tests passing: `pytest tests/test_search.py`
+- [x] Unit tests passing: `pytest tests/test_search.py`
 - [x] Validation Agent implemented
-- [ ] Unit tests passing: `pytest tests/test_validation.py`
-- [ ] Agent pipeline integration test passing: `pytest tests/test_agent_pipeline.py`
+- [x] Unit tests passing: `pytest tests/test_validation.py`
+- [x] Agent pipeline integration test passing: `pytest tests/test_agent_pipeline.py`
 
 ### 9.4 Database
 - [x] SQLite models defined
 - [x] Database operations implemented
-- [ ] Unit tests passing: `pytest tests/test_database.py`
+- [x] Unit tests passing: `pytest tests/test_database.py`
 
 ### 9.5 API
 - [x] FastAPI endpoints implemented
-- [ ] API integration tests passing: `pytest tests/test_api_endpoints.py`
+- [x] API integration tests passing: `pytest tests/test_api_endpoints.py`
 
 ### 9.6 User Interface
 - [x] Representative View (index.html) implemented
@@ -324,11 +324,11 @@ Track progress by checking off completed items. **All tests must pass before che
 - [x] UI connected to API endpoints
 
 ### 9.7 Final Validation
-- [ ] All unit tests passing: `pytest tests/ -k "not integration"`
-- [ ] All integration tests passing: `pytest tests/ -k "integration"`
-- [ ] End-to-end test passing: `pytest tests/test_end_to_end.py`
-- [ ] Manual smoke test: full user flow works in browser
-- [ ] System runs without errors: `uvicorn app.main:app`
+- [x] All unit tests passing: `pytest tests/ -k "not integration"`
+- [x] All integration tests passing: `pytest tests/ -k "integration"`
+- [x] End-to-end test passing: `pytest tests/test_end_to_end.py`
+- [x] Manual smoke test: full user flow works in browser
+- [x] System runs without errors: `uvicorn app.main:app`
 
 ---
 
