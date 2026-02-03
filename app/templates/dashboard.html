@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard - CSS System</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Manager Dashboard</h1>
+            <nav>
+                <a href="/" class="nav-link">Representative View</a>
+                <a href="/dashboard" class="nav-link active">Manager Dashboard</a>
+            </nav>
+        </header>
+
+        <main class="dashboard">
+            <!-- Summary Cards -->
+            <section class="summary-cards">
+                <div class="card summary-card">
+                    <h3>Total Queries</h3>
+                    <div class="card-value" id="total-queries">0</div>
+                </div>
+                <div class="card summary-card">
+                    <h3>Avg Confidence</h3>
+                    <div class="card-value" id="avg-confidence">0%</div>
+                </div>
+                <div class="card summary-card">
+                    <h3>Avg Response Time</h3>
+                    <div class="card-value" id="avg-response-time">0ms</div>
+                </div>
+                <div class="card summary-card warning">
+                    <h3>Low Confidence Queries</h3>
+                    <div class="card-value" id="low-confidence-count">0</div>
+                </div>
+            </section>
+
+            <!-- Charts -->
+            <section class="charts-section">
+                <div class="card chart-card">
+                    <h3>Confidence Distribution</h3>
+                    <canvas id="confidence-chart"></canvas>
+                </div>
+                <div class="card chart-card">
+                    <h3>Queries by Category</h3>
+                    <canvas id="intent-chart"></canvas>
+                </div>
+                <div class="card chart-card">
+                    <h3>Top Documents Used</h3>
+                    <canvas id="documents-chart"></canvas>
+                </div>
+                <div class="card chart-card">
+                    <h3>Queries Over Time</h3>
+                    <canvas id="timeline-chart"></canvas>
+                </div>
+            </section>
+
+            <!-- Low Confidence Queries Table -->
+            <section class="table-section">
+                <div class="card">
+                    <h3>Recent Low-Confidence Queries</h3>
+                    <div class="table-container">
+                        <table id="low-confidence-table">
+                            <thead>
+                                <tr>
+                                    <th>Question</th>
+                                    <th>Confidence</th>
+                                    <th>Category</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="low-confidence-body">
+                                <!-- Data will be inserted here -->
+                            </tbody>
+                        </table>
+                        <p class="no-data hidden" id="no-low-confidence">No low-confidence queries to display.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Queries Table -->
+            <section class="table-section">
+                <div class="card">
+                    <h3>Recent Queries</h3>
+                    <div class="table-container">
+                        <table id="recent-queries-table">
+                            <thead>
+                                <tr>
+                                    <th>Question</th>
+                                    <th>Answer (Preview)</th>
+                                    <th>Confidence</th>
+                                    <th>Source</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-queries-body">
+                                <!-- Data will be inserted here -->
+                            </tbody>
+                        </table>
+                        <p class="no-data hidden" id="no-recent-queries">No queries to display.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

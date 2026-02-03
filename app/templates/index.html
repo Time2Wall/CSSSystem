@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Support System</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Customer Service Support System</h1>
+            <nav>
+                <a href="/" class="nav-link active">Representative View</a>
+                <a href="/dashboard" class="nav-link">Manager Dashboard</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="query-section">
+                <h2>Ask a Question</h2>
+                <form id="query-form">
+                    <div class="form-group">
+                        <label for="question">Customer Question:</label>
+                        <textarea
+                            id="question"
+                            name="question"
+                            rows="4"
+                            placeholder="Enter the customer's question or describe their issue..."
+                            required
+                        ></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn">Get Answer</button>
+                </form>
+            </section>
+
+            <section class="loading-section hidden" id="loading">
+                <div class="spinner"></div>
+                <p>Processing your question...</p>
+            </section>
+
+            <section class="answer-section hidden" id="answer-section">
+                <div class="answer-card">
+                    <div class="answer-header">
+                        <h3>Answer</h3>
+                        <div class="confidence-badge" id="confidence-badge">
+                            <span class="confidence-score" id="confidence-score">85%</span>
+                            <span class="confidence-label" id="confidence-label">High Confidence</span>
+                        </div>
+                    </div>
+
+                    <div class="answer-content" id="answer-content">
+                        <!-- Answer will be inserted here -->
+                    </div>
+
+                    <div class="answer-meta">
+                        <div class="source-info">
+                            <strong>Source:</strong>
+                            <a href="#" id="source-link" class="source-link">document.md</a>
+                        </div>
+                        <div class="intent-info">
+                            <strong>Category:</strong>
+                            <span id="intent-badge" class="intent-badge">ACCOUNT</span>
+                        </div>
+                        <div class="time-info">
+                            <strong>Response Time:</strong>
+                            <span id="response-time">500ms</span>
+                        </div>
+                    </div>
+
+                    <details class="reformulated-query">
+                        <summary>Show Reformulated Query</summary>
+                        <p id="reformulated-query">The reformulated search query will appear here.</p>
+                    </details>
+                </div>
+            </section>
+        </main>
+
+        <!-- Document Modal -->
+        <div class="modal hidden" id="document-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Document</h3>
+                    <button class="modal-close" id="modal-close">&times;</button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <!-- Document content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
