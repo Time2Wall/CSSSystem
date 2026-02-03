@@ -78,13 +78,23 @@ def mock_ollama_client() -> Mock:
 
 
 @pytest.fixture
-def mock_chroma_client(tmp_path: Path) -> MagicMock:
-    """Create a mock ChromaDB client for testing."""
+def mock_chroma_client(tmp_path: Path, test_config: AppConfig) -> MagicMock:
+    """Create a fresh ChromaDB client for testing."""
     import chromadb
+    import uuid
 
-    # Use ephemeral client for testing
+    # Use ephemeral client with unique collection per test
     client = chromadb.Client()
-    return client
+
+    # Generate unique collection name for this test
+    unique_name = f"test_collection_{uuid.uuid4().hex[:8]}"
+    test_config.chroma.collection_name = unique_name
+
+    yield client
+
+    # Clean up - delete all collections
+    for collection in client.list_collections():
+        client.delete_collection(collection.name)
 
 
 @pytest.fixture

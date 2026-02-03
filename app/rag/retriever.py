@@ -22,7 +22,7 @@ class RetrievalResult:
     def relevance_percentage(self) -> float:
         """Convert cosine distance to relevance percentage."""
         # ChromaDB returns distance (lower is better), convert to similarity
-        return max(0, min(100, (1 - self.score) * 100))
+        return round(max(0, min(100, (1 - self.score) * 100)), 1)
 
 
 class DocumentRetriever:

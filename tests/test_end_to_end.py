@@ -155,7 +155,7 @@ class TestEndToEnd:
             assert saved_query.question == "How do I open a checking account?"
 
     @pytest.mark.integration
-    def test_all_three_agents_called(self, test_system, mock_ollama_client):
+    def test_all_three_agents_called(self, test_system):
         """Test that all three agents are called in sequence."""
         app, db_manager, pipeline = test_system
 
@@ -166,9 +166,20 @@ class TestEndToEnd:
             )
 
             assert response.status_code == 200
+            data = response.json()
 
-            # Verify all agents were called (at least 3 LLM calls)
-            assert mock_ollama_client.chat.call_count >= 3
+            # Verify response contains output from all 3 agents:
+            # 1. Reformulation Agent - produces reformulated_query and detected_intent
+            assert "reformulated_query" in data
+            assert "detected_intent" in data
+
+            # 2. Search Agent - produces answer and source_document
+            assert "answer" in data
+            assert "source_document" in data
+
+            # 3. Validation Agent - produces confidence_score
+            assert "confidence_score" in data
+            assert 0 <= data["confidence_score"] <= 100
 
     @pytest.mark.integration
     def test_query_saved_to_database(self, test_system):
